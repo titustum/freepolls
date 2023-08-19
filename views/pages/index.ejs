@@ -1,0 +1,39 @@
+
+    <%- include('partials/header.ejs') %>
+
+    <div class="px-4 py-4">
+
+        <div class="min-h-[80vh] py-6 px-6 bg-blend-color-burn bg-cyan-400 bg-cover rounded-md flex flex-col justify-end gap-4"
+        style="background-image: url('/images/index-splash.jpg');">
+            <div class="flex-grow grid md:grid-cols-2">
+                <div>
+                    <h1 class="font-bold text-3xl text-white">WECLOME TO KENPOLLS</h1>
+                    <h2 class="mt-5 text-2xl text-green-500">
+                        Create a polls in seconds and let the people vote with confidence! We are the real deal when it comes:
+                    </h2>
+                    <ul class="list-inside list-disc text-white mt-3">
+                        <li class="list-item mt-2">Transparency</li>
+                        <li class="list-item mt-2">Reliability</li>
+                        <li class="list-item mt-2">Flexibility</li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="grid md:grid-cols-2">
+                <div class="grid lg:grid-cols-2 gap-4">
+                    <a href="/create" class="text-center py-3 px-4 text-black rounded-full font-bold bg-white hover:text-white hover:bg-black transition-all">
+                        <i class="fa fa-plus"></i> CREATE A NEW POLL
+                    </a>
+                    <a href="/demo" class="text-center py-3 px-4 text-black rounded-full font-bold bg-white hover:text-white hover:bg-black transition-all">
+                        <i class="fa fa-box"></i> VIEW DEMO
+                    </a> 
+                </div>
+                 
+            </div>
+        </div>
+    
+    </div>
+
+<%- include('partials/footer.ejs') %>
+
+ 

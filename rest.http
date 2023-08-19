@@ -1,0 +1,24 @@
+GET http://localhost:8080/api/poll/1
+
+### 
+GET http://localhost:8080/api/pollster/2
+
+
+###
+GET http://localhost:8080/api/pollsters
+
+###
+POST http://localhost:8080/api/pollster
+Content-Type: application/json
+
+{
+    "name": "Alfred Mutua",
+    "email": "alfred@mail.com",
+    "password": "12345673"
+}
+
+###
+POST http://localhost:8080/api/categories
+
+###
+DELETE http://localhost:8080/api/category/3

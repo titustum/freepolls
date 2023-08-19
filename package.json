@@ -1,0 +1,33 @@
+{
+  "name": "pollsapp",
+  "version": "1.0.0",
+  "description": "This is a wonderful app that can be using for polling functions. Coded with express js framework and tailwindcss",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "test": "test"
+  },
+  "keywords": [
+    "Polls",
+    "Express",
+    "Voting"
+  ],
+  "author": "Titus Tum",
+  "license": "MIT",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "@prisma/client": "^5.1.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.8",
+    "nodemon": "^3.0.1",
+    "prisma": "^5.1.1",
+    "tailwindcss": "^3.3.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
+}

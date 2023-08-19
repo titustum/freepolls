@@ -1,0 +1,27 @@
+<nav class="px-4 border-b-4 w-[100%] top-0 border-orange-500">
+    <div class="container py-2  mx-auto flex justify-between items-center">
+        <div class="text-3xl flex items-center font-bold">
+            <img src="/images/polls-logo.png" alt="Polls Logo" 
+            class="h-8 md:h-12">
+            <div class="ml-3">KENPOLLS</div>
+        </div> 
+
+        
+        <div class=" hidden lg:inline">
+            <input type="search" name="search" id="search"
+            class="py-2 rounded-full md:w-[300px] text-black px-3 border-2 border-cyan-300" placeholder="Search polls ...">
+        </div>
+
+
+        <div class="items-center hidden lg:flex">
+            <a href="/create" class=" hover:text-blue-600 font-semibold">CREATE NEW POLL</a>  
+            <a href="/login" class="ml-8 hover:text-blue-600 font-semibold">LOGIN</a>
+            <a href="/register" class="ml-8 hover:text-blue-600 font-semibold">REGISTER</a>
+        </div>
+
+        <div class="items-center lg:hidden flex">
+            <button name="go_to_search_button" class="text-xl"><i class="fas fa-search"></i></button> 
+            <button name="show_menu_button" class="text-xl ml-4"><i class="fas fa-bars"></i></button> 
+        </div>
+    </div>
+</nav>

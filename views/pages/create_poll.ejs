@@ -1,0 +1,98 @@
+<%- include('partials/header.ejs') %>
+<div class="my-6 px-3">
+  <div
+    class="max-w-[800px] shadow border-t-2 rounded-md pt-6 px-4 mx-auto min-h-[70vh]"
+  >
+    <div class="font-bold text-2xl">CREATE A NEW POLL</div>
+
+    <div id="errors" class="hidden py-2 text-red-600 bg-red-100 rounded my-2"></div>
+    <div class="mt-5">
+      <label for="title" class="">Poll Question</label>
+      <input
+        type="text"
+        name="title"
+        id="title"
+        class="py-2 px-4 border border-black font-semibold rounded w-full mt-1"
+        placeholder="e.g. Who will be the next president?"
+      />
+    </div>
+
+    <div class="mt-3">
+      <label for="title" class="">Poll Category</label>
+      <select
+        name="category"
+        id="category"
+        class="py-2 px-4 border border-black font-semibold rounded w-full mt-1"
+      >
+        <option class="py-1" value="">Choose category</option>
+        <option class="py-1">Politics</option>
+        <option class="py-1">Education</option>
+        <option class="py-1">Entertainment</option>
+        <option class="py-1">Lifestyle</option>
+      </select>
+    </div>
+
+    <div class="mt-3">
+      <label for="title" class="">Voting Type</label>
+      <select
+        name="v_type"
+        id="v_type"
+        class="py-2 px-4 border border-black font-semibold rounded w-full mt-1"
+      >
+        <option class="py-1" value="">Choose voting type</option>
+        <option class="py-1">Single answer</option>
+        <option class="py-1">Multiple answers</option>
+        <option class="py-1">User to type extra answer</option>
+      </select>
+    </div>
+
+    <button onclick="createPoll()"
+      class="text-center py-3 px-6 mt-4 text-white rounded-md font-bold bg-black hover:text-white hover:opacity-70 transition-all"
+    >
+      CONTINUE <i class="fa fa-chevron-right"></i>
+    </button>
+  </div>
+</div>
+
+
+
+<script>
+
+    function createPoll() {
+        let errorsEl = document.getElementById('errors')
+        let title = document.getElementById('title').value
+        let category = document.getElementById('category').value
+        let v_type = document.getElementById('v_type').value
+
+        if (title != "" && category != ""  && v_type != "") {
+            
+            fetch(
+                '/api/poll',
+                {
+                   method: "POST",
+                   headers: {
+                    "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        quiz: title,
+                        categoryId: 1,
+                        pollsterId: 1,
+                        pollType: v_type
+                    })
+                }
+                
+            )
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+            })
+
+        }else{
+            errorsEl.innerText = 'Fill all the fields!'
+        }
+
+    }
+
+</script>
+
+<%- include('partials/footer.ejs') %>

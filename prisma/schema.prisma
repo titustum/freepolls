@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Pollster {
+  id         Int        @id @default(autoincrement())
+  name       String
+  email      String     @unique
+  password   String
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  polls      Poll[]
+  categories Category[]
+  votes      Vote[]
+}
+
+model Poll {
+  id         Int      @id @default(autoincrement())
+  quiz       String
+  pollsterId Int
+  categoryId Int
+  choices    Choice[]
+  pollType   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  Category   Category @relation(fields: [categoryId], references: [id])
+  Pollster   Pollster @relation(fields: [pollsterId], references: [id])
+  votes      Vote[]
+}
+
+model Category {
+  id         Int      @id @default(autoincrement())
+  name       String
+  icon       String
+  pollsterId Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  polls      Poll[]
+  Pollster   Pollster @relation(fields: [pollsterId], references: [id])
+}
+
+model Choice {
+  id        Int      @id @default(autoincrement())
+  name      String
+  pollId    Int
+  Poll      Poll     @relation(fields: [pollId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Vote {
+  id         Int      @id @default(autoincrement())
+  Pollster   Pollster @relation(fields: [pollsterId], references: [id])
+  Poll       Poll     @relation(fields: [pollId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  pollsterId Int
+  pollId     Int
+}

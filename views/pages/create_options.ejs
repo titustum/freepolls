@@ -1,0 +1,76 @@
+<%- include('partials/header.ejs') %>
+<div class="my-6 px-3">
+  <div
+    class="max-w-[800px] shadow border-t-2 rounded-md pt-6 px-4 mx-auto min-h-[70vh]"
+  >
+
+    <div class="font-bold text-2xl">Who will be the next president?</div>
+
+    <div id="errors" class="hidden py-2 text-red-600 bg-red-100 rounded my-2"></div>
+    
+    <div class="mt-5 border-t py-2">
+      <label for="title" class="">Add new option</label>
+      <div class="flex items-center">
+        <input
+          type="text"
+          name="option"
+          id="option"
+          class="py-2 px-4 border border-black font-semibold rounded flex-grow mt-1"
+          placeholder="e.g. William Ruto"
+        />
+
+        <button onclick="createOption()"
+          class="shrink-0 ml-2 text-center px-4 py-2 text-white rounded-md bg-black hover:text-white hover:opacity-70 transition-all"
+        >
+          <i class="fas fa-plus"></i> Add option
+        </button>
+      </div>
+    </div>
+
+    <button
+      class="text-center py-3 px-6 mt-8 text-white rounded-md font-bold bg-cyan-700 hover:text-white hover:opacity-70 transition-all"
+    >
+      PUBLISH NOW <i class="fa fa-globe"></i>
+    </button>
+  </div>
+</div>
+
+
+
+
+<script>
+
+    function createOption() {
+        let errorsEl = document.getElementById('errors')
+        let option = document.getElementById('option').value 
+
+        if (option != "") {
+            
+            fetch(
+                '/api/choice',
+                {
+                   method: "POST",
+                   headers: {
+                    "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        name: option,
+                        pollId: 1,
+                    })
+                }
+                
+            )
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+            })
+
+        }else{
+            errorsEl.innerText = 'Fill all the fields!'
+        }
+
+    }
+
+</script>
+
+<%- include('partials/footer.ejs') %>
