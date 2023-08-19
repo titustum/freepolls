@@ -39,6 +39,6 @@ app.use('/api', choiceRoutes)
 app.use('/api', pollsterRoutes)
 app.use('/api', pollRoutes)
 
-
+let port = 3000 || process.env.PORT
 app.listen(8080);
 console.log('Server is listening on port 8080');
