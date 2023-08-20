@@ -2,10 +2,10 @@
   "name": "pollsapp",
   "version": "1.0.0",
   "description": "This is a wonderful app that can be using for polling functions. Coded with express js framework and tailwindcss",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "test": "test"
   },
   "keywords": [

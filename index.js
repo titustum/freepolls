@@ -39,8 +39,10 @@ app.use('/api', choiceRoutes)
 app.use('/api', pollsterRoutes)
 app.use('/api', pollRoutes)
 
+/*
 let port = 3000
 app.listen(port);
 console.log(`Server is listening on port ${port}`);
+*/
 
 module.exports = app;
