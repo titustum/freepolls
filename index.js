@@ -5,9 +5,10 @@ const expressLayouts = require('express-ejs-layouts')
 
 // set the view engine to ejs
 app.use(expressLayouts)
+app.set("views", "./views");
 app.set('view engine', 'ejs');
 
-// app.use(express.static('public'));
+app.use("./", express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded());
 
